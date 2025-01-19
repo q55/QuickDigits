@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickDigits</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Start Screen -->
+    <div id="startScreen">
+      <h1 id="gameTitle">QuickDigits</h1>
+      <p id="gameInstructions">
+        Memorize the number displayed, then type it in before the timer runs
+        out!
+      </p>
+      <button id="startButton" onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Game Header -->
+    <header style="display: none">
+      <h1 id="gameTitle">QuickDigits</h1>
+      <footer>
+        <div id="scoreContainer">
+          <span>Your Score:</span>
+          <span id="scoreNum">0</span>
+        </div>
+      </footer>
+    </header>
+
+    <!-- Game Container -->
+    <main id="container" style="display: none">
+      <div id="gameInfo">
+        <h1 id="randomNumH1">#####</h1>
+        <div id="timerContainer">
+          <span id="timer">6</span>
+          <span id="timerLitterS">s</span>
+        </div>
+      </div>
+      <div class="brutalist-container">
+        <input
+          id="userInput"
+          placeholder="Wait for the timer..."
+          class="brutalist-input smooth-type"
+          type="text"
+          maxlength="5"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+          aria-label="Number Input"
+          disabled
+        />
+      </div>
+      <button class="pushable" onclick="CheckValidate()">
+        <span class="front">Submit</span>
+      </button>
+      <h2 id="result" style="display: none">Result here</h2>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

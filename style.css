@@ -1,0 +1,287 @@
+/* General Styling */
+body {
+  background: linear-gradient(120deg, #183a66, #674074, #264a8d, #071312);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#gameTitle {
+  font-size: 2.5rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #fdfdfd;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+#container {
+  text-align: center;
+  padding: 40px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 350px;
+  border: 3px solid #fff;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#gameInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#randomNumH1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  font-family: "Roboto Mono", monospace;
+  color: #000000;
+}
+
+#timerContainer {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border: 5px solid #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+#scoreContainer {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 30px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #4caf50;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Input and Label Styling */
+.brutalist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.brutalist-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  color: #ffffff;
+  background: linear-gradient(145deg, #1e1e1e, #2e2e2e);
+}
+
+/* Submit Button */
+.pushable {
+  position: relative;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.pushable .front {
+  display: block;
+  background: hsl(248, 53%, 58%);
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  position: relative;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.pushable:hover .front {
+  background: hsl(248, 43%, 68%);
+}
+
+.pushable:active .front {
+  background: hsl(248, 53%, 48%);
+}
+
+/* Result Labels */
+#result {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  text-align: center;
+  display: inline-block;
+  color: #ffffff;
+  background: hsl(248, 53%, 58%);
+  transition: all 0.3s ease;
+}
+
+#result.correct {
+  background: #4caf50;
+}
+
+#result.wrong {
+  background: #f44336;
+}
+
+#result.timeup {
+  background: #ff9800;
+}
+
+/* Blur Effect for #container */
+#container {
+  transition: filter 0.5s ease, pointer-events 0.5s ease;
+}
+
+#container.blurred {
+  filter: blur(1.5px);
+  pointer-events: none;
+}
+
+/* Feedback Symbol */
+/* Feedback Symbol */
+#feedbackSymbol {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: bold;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.feedback-success {
+  color: #4caf50;
+  animation: feedback-fade-in 0.2s ease forwards;
+}
+
+.feedback-error {
+  color: #f44336;
+  animation: feedback-fade-in 0.2s ease forwards;
+}
+
+/* Fade-out Animation */
+.fade-out {
+  animation: feedback-fade-out 0.2s ease forwards;
+}
+
+/* Keyframes for Feedback Symbol */
+@keyframes feedback-fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes feedback-fade-out {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+}
+.feedback-success {
+  animation: feedback-fade-in 0.05s ease forwards; /* Use at least 0.05s */
+}
+
+.fade-out {
+  animation: feedback-fade-out 0.05s ease forwards;
+}
+
+/* Start Screen */
+#startScreen {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#startScreen h1 {
+  font-size: 3rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #fdfdfd;
+  margin-bottom: 20px;
+}
+
+#gameInstructions {
+  font-size: 1.2rem;
+  line-height: 1.5; /* Add spacing for readability */
+  margin-bottom: 30px;
+  color: #f8f8f8;
+  max-width: 600px; /* Limit text width */
+}
+
+#startButton {
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  color: #ffffff;
+  background: hsl(0, 0%, 0%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#startButton:hover {
+  background: hsl(248, 30%, 20%);
+  transform: scale(1.05); /* Slight scaling for hover effect */
+}
+
+#startButton:active {
+  background: hsl(248, 53%, 48%);
+  transform: scale(0.98); /* Slight shrinking for click effect */
+}
