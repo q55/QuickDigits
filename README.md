@@ -12,9 +12,9 @@ QuickDigits is a fun and interactive memory game where players must memorize and
 
 Here are some screenshots of the game:
 
-![Screenshot 1](https://github.com/q55/QuickDigits/raw/main/path/to/your/image1.png)
-![Screenshot 2](https://github.com/q55/QuickDigits/raw/main/path/to/your/image2.png)
-![Screenshot 3](https://github.com/q55/QuickDigits/raw/main/path/to/your/image3.png)
+![Screenshot 1](https://github.com/q55/QuickDigits/blob/main/image1.png)
+![Screenshot 2](https://github.com/q55/QuickDigits/blob/main/image2.png)
+![Screenshot 3](https://github.com/q55/QuickDigits/blob/main/image3.png)
 
 ## Features
 
